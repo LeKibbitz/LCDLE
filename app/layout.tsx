@@ -1,10 +1,10 @@
 'use client'
 
-import React, { useEffect } from 'react'
+import React from 'react'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import emailjs from '@emailjs/browser'
+import { Providers } from './providers'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,18 +18,14 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  useEffect(() => {
-    if (process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY) {
-      emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY)
-    }
-  }, [])
-
   return (
-    <html lang="fr">
+    <html lang="fr" suppressHydrationWarning>
       <body className={inter.className}>
-        <main className="min-h-screen">
-          {children}
-        </main>
+        <Providers>
+          <main className="min-h-screen bg-white dark:bg-gray-900">
+            {children}
+          </main>
+        </Providers>
       </body>
     </html>
   )

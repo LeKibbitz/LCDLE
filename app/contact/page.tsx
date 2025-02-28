@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import emailjs from '@emailjs/browser'
+import { ThemeToggle } from '../components/ThemeToggle'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -46,28 +47,29 @@ export default function Contact() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Header */}
-      <header className="bg-white shadow-sm">
+      <header className="bg-white dark:bg-gray-800 shadow-sm">
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
             <div className="flex-shrink-0">
-              <Link href="/" className="text-2xl font-bold text-gray-900">
+              <Link href="/" className="text-2xl font-bold text-gray-900 dark:text-white">
                 La Clinique de l'Entreprise
               </Link>
             </div>
-            <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-4">
-                <Link href="/" className="text-gray-900 hover:text-gray-700 px-3 py-2 rounded-md">
+            <div className="hidden md:flex md:items-center md:space-x-4">
+              <div className="flex items-baseline space-x-4">
+                <Link href="/" className="text-gray-900 dark:text-gray-300 hover:text-gray-700 dark:hover:text-white px-3 py-2 rounded-md">
                   Accueil
                 </Link>
-                <Link href="/services" className="text-gray-900 hover:text-gray-700 px-3 py-2 rounded-md">
+                <Link href="/services" className="text-gray-900 dark:text-gray-300 hover:text-gray-700 dark:hover:text-white px-3 py-2 rounded-md">
                   Services
                 </Link>
-                <Link href="/contact" className="text-gray-900 hover:text-gray-700 px-3 py-2 rounded-md">
+                <Link href="/contact" className="text-gray-900 dark:text-gray-300 hover:text-gray-700 dark:hover:text-white px-3 py-2 rounded-md">
                   Contact
                 </Link>
               </div>
+              <ThemeToggle />
             </div>
           </div>
         </nav>
@@ -76,11 +78,11 @@ export default function Contact() {
       {/* Contact Form */}
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
-          <h1 className="text-3xl font-bold text-gray-900 text-center mb-8">Contactez-nous</h1>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white text-center mb-8">Contactez-nous</h1>
           
-          <form onSubmit={handleSubmit} className="space-y-6 bg-white p-6 rounded-lg shadow">
+          <form onSubmit={handleSubmit} className="space-y-6 bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                 Nom
               </label>
               <input
@@ -89,13 +91,13 @@ export default function Contact() {
                 id="name"
                 value={formData.name}
                 onChange={handleChange}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                className="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
                 required
               />
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                 Email
               </label>
               <input
@@ -104,13 +106,13 @@ export default function Contact() {
                 id="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                className="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
                 required
               />
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                 Message
               </label>
               <textarea
@@ -119,7 +121,7 @@ export default function Contact() {
                 value={formData.message}
                 onChange={handleChange}
                 rows={4}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                className="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
                 required
               />
             </div>
@@ -130,8 +132,8 @@ export default function Contact() {
                 disabled={status === 'sending'}
                 className={`w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white ${
                   status === 'sending'
-                    ? 'bg-blue-400 cursor-not-allowed'
-                    : 'bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500'
+                    ? 'bg-blue-400 dark:bg-blue-500 cursor-not-allowed'
+                    : 'bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500'
                 }`}
               >
                 {status === 'sending' ? 'Envoi en cours...' : 'Envoyer'}
@@ -174,8 +176,8 @@ export default function Contact() {
           </form>
 
           <div className="mt-8 text-center">
-            <h2 className="text-xl font-semibold text-gray-900 mb-4">Autres moyens de nous contacter</h2>
-            <p className="text-gray-600">
+            <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Autres moyens de nous contacter</h2>
+            <p className="text-gray-600 dark:text-gray-400">
               Email: contact@lacliniquedelentreprise.fr
             </p>
           </div>
