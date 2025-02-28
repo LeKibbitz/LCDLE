@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import emailjs from '@emailjs/browser'
 import { Header } from '../components/Header'
+import { Footer } from '../components/Footer'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -157,6 +158,8 @@ export default function Contact() {
           </div>
         </div>
       </div>
+
+      <Footer />
     </div>
   )
 } 

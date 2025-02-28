@@ -1,100 +1,144 @@
 import React from 'react'
 import Link from 'next/link'
 import { Header } from '../components/Header'
+import { Footer } from '../components/Footer'
 
 const services = [
   {
-    title: "Conseil Stratégique",
-    description: "Nous vous aidons à définir et mettre en œuvre votre stratégie de transformation digitale.",
-    features: [
-      "Audit digital",
-      "Planification stratégique",
+    title: "1 - UN DIAGNOSTIC STRATÉGIQUE À 360° : LE BILAN DE SANTÉ DE VOTRE ENTREPRISE",
+    description: "Un diagnostic précis comme un scanner médical de votre entreprise.",
+    objectives: [
+      "Identifier les points forts et les points d'amélioration",
+      "Construire un plan d'action sur mesure adapté aux 4 axes clés : Santé, Performance, Spécialités et Prévention"
+    ]
+  },
+  {
+    title: "2 - UN ACCOMPAGNEMENT SUR-MESURE",
+    description: "Un plan d'action personnalisé comme un médecin, l'écouter et dialoguer pour atteindre de nouveaux paliers de développement.",
+    objectives: [
+      "Améliorer la santé et décupler les performances de votre entreprise",
+      "Agir avec sérénité en vous assistant sur l'ensemble des problématiques clés"
+    ]
+  }
+]
+
+const axes = [
+  {
+    title: "Axe Santé",
+    items: [
+      "Diagnostic stratégique",
+      "Bilan de santé",
+      "Plan d'action",
+      "Suivi des indicateurs"
+    ]
+  },
+  {
+    title: "Axe Performance",
+    items: [
       "Optimisation des processus",
-      "Gestion du changement"
+      "Gestion du changement",
+      "Développement commercial",
+      "Amélioration continue"
     ]
   },
   {
-    title: "Solutions Digitales",
-    description: "Développement de solutions numériques adaptées à vos besoins spécifiques.",
-    features: [
-      "Développement sur mesure",
-      "Intégration de systèmes",
-      "Applications web et mobile",
-      "Automatisation des processus"
+    title: "Axe Spécialités",
+    items: [
+      "Expertise sectorielle",
+      "Solutions sur mesure",
+      "Innovation",
+      "Transformation digitale"
     ]
   },
   {
-    title: "Formation",
-    description: "Programmes de formation personnalisés pour vos équipes.",
-    features: [
-      "Formation aux outils digitaux",
-      "Accompagnement personnalisé",
-      "Workshops pratiques",
-      "Suivi post-formation"
+    title: "Axe Prévention",
+    items: [
+      "Gestion des risques",
+      "Formation",
+      "Accompagnement",
+      "Veille stratégique"
     ]
   }
 ]
 
 export default function Services() {
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen bg-white dark:bg-gray-900">
       <Header />
 
-      {/* Services Content */}
+      {/* Main Content */}
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white sm:text-4xl">Nos Services</h1>
-          <p className="mt-4 text-xl text-gray-600 dark:text-gray-400">
-            Des solutions complètes pour accompagner votre transformation digitale
-          </p>
-        </div>
+        <h1 className="text-4xl font-bold text-gray-900 dark:text-white text-center mb-12">
+          NOS SERVICES
+        </h1>
 
-        <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {/* Service Descriptions */}
+        <div className="space-y-12 mb-16">
           {services.map((service, index) => (
-            <div
-              key={index}
-              className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden"
-            >
-              <div className="px-6 py-8">
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                  {service.title}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-400 mb-6">
-                  {service.description}
-                </p>
-                <ul className="space-y-3">
-                  {service.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-start">
-                      <svg
-                        className="h-6 w-6 text-green-500 dark:text-green-400 mr-2"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                      <span className="text-gray-600 dark:text-gray-400">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="px-6 py-4 bg-gray-50 dark:bg-gray-700">
-                <Link
-                  href="/contact"
-                  className="block text-center w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600"
-                >
-                  En savoir plus
-                </Link>
-              </div>
+            <div key={index} className="bg-gray-50 dark:bg-gray-800 rounded-lg p-8">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                {service.title}
+              </h2>
+              <p className="text-gray-600 dark:text-gray-300 mb-6">
+                {service.description}
+              </p>
+              <ul className="list-disc pl-6 space-y-2">
+                {service.objectives.map((objective, objIndex) => (
+                  <li key={objIndex} className="text-gray-600 dark:text-gray-300">
+                    {objective}
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>
+
+        {/* 4 Axes */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {axes.map((axis, index) => (
+            <div
+              key={index}
+              className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6"
+            >
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 text-center">
+                {axis.title}
+              </h3>
+              <ul className="space-y-3">
+                {axis.items.map((item, itemIndex) => (
+                  <li key={itemIndex} className="flex items-start">
+                    <svg
+                      className="h-6 w-6 text-blue-600 dark:text-blue-500 mr-2"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                    <span className="text-gray-600 dark:text-gray-300">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        {/* Contact CTA */}
+        <div className="text-center mt-16">
+          <Link
+            href="/contact"
+            className="inline-block px-8 py-4 border border-transparent text-lg font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600"
+          >
+            Contactez-nous pour en savoir plus
+          </Link>
+        </div>
       </div>
+
+      <Footer />
     </div>
   )
 } 

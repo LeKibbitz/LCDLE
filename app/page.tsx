@@ -1,6 +1,8 @@
 import React from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Header } from './components/Header'
+import { Footer } from './components/Footer'
 
 export default function Home() {
   return (
@@ -8,110 +10,129 @@ export default function Home() {
       <Header />
 
       {/* Hero Section */}
-      <div className="relative bg-white dark:bg-gray-900 overflow-hidden">
+      <div className="relative bg-[#1a1f36] overflow-hidden">
         <div className="max-w-7xl mx-auto">
-          <div className="relative z-10 pb-8 bg-white dark:bg-gray-900 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
-            <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
-              <div className="sm:text-center lg:text-left">
-                <h2 className="text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white sm:text-5xl md:text-6xl">
-                  <span className="block">Transformez votre</span>
-                  <span className="block text-blue-600 dark:text-blue-500">entreprise</span>
-                </h2>
-                <p className="mt-3 text-base text-gray-500 dark:text-gray-400 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-                  Nous vous accompagnons dans votre transformation digitale avec des solutions sur mesure.
-                </p>
-                <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
-                  <div className="rounded-md shadow">
-                    <Link
-                      href="/contact"
-                      className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 md:py-4 md:text-lg md:px-10"
-                    >
-                      Commencer
-                    </Link>
+          <div className="relative z-10 pb-8 sm:pb-16 md:pb-20 lg:pb-28 xl:pb-32">
+            <div className="relative pt-6 px-4 sm:px-6 lg:px-8">
+              <div className="relative">
+                <Image
+                  src="/hands.jpg"
+                  alt="Expertise hands"
+                  width={1200}
+                  height={600}
+                  className="w-full object-cover"
+                  priority
+                />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-center">
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4">
+                      NOTRE EXPERTISE
+                    </h1>
+                    <p className="text-xl sm:text-2xl text-white max-w-3xl mx-auto">
+                      AMÉLIORER LA SANTÉ ET<br />
+                      LES PERFORMANCES<br />
+                      DES ENTREPRISES
+                    </p>
                   </div>
                 </div>
               </div>
-            </main>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Features Section */}
-      <div className="py-12 bg-gray-50 dark:bg-gray-800">
+      {/* Partners Section */}
+      <div className="bg-white dark:bg-gray-800 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="lg:text-center">
-            <h2 className="text-base text-blue-600 dark:text-blue-500 font-semibold tracking-wide uppercase">Nos Services</h2>
-            <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
-              Solutions complètes pour votre entreprise
-            </p>
-          </div>
-
-          <div className="mt-10">
-            <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
-              {/* Service 1 */}
-              <div className="bg-white dark:bg-gray-700 overflow-hidden shadow rounded-lg">
-                <div className="px-4 py-5 sm:p-6">
-                  <h3 className="text-lg font-medium text-gray-900 dark:text-white">Conseil Stratégique</h3>
-                  <p className="mt-2 text-base text-gray-500 dark:text-gray-300">
-                    Expertise en transformation digitale et optimisation des processus.
-                  </p>
-                </div>
-              </div>
-
-              {/* Service 2 */}
-              <div className="bg-white dark:bg-gray-700 overflow-hidden shadow rounded-lg">
-                <div className="px-4 py-5 sm:p-6">
-                  <h3 className="text-lg font-medium text-gray-900 dark:text-white">Solutions Digitales</h3>
-                  <p className="mt-2 text-base text-gray-500 dark:text-gray-300">
-                    Développement d'outils sur mesure pour votre activité.
-                  </p>
-                </div>
-              </div>
-
-              {/* Service 3 */}
-              <div className="bg-white dark:bg-gray-700 overflow-hidden shadow rounded-lg">
-                <div className="px-4 py-5 sm:p-6">
-                  <h3 className="text-lg font-medium text-gray-900 dark:text-white">Formation</h3>
-                  <p className="mt-2 text-base text-gray-500 dark:text-gray-300">
-                    Accompagnement et formation de vos équipes.
-                  </p>
-                </div>
-              </div>
-            </div>
+          <h2 className="text-2xl font-bold text-center text-gray-900 dark:text-white mb-8">
+            ILS NOUS FONT CONFIANCE
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center">
+            <Image src="/partners/alt.png" alt="Alt" width={150} height={80} className="dark:filter dark:brightness-0 dark:invert" />
+            <Image src="/partners/ivosc.png" alt="Ivosc" width={150} height={80} className="dark:filter dark:brightness-0 dark:invert" />
+            <Image src="/partners/imagineur.png" alt="Imagineur" width={150} height={80} className="dark:filter dark:brightness-0 dark:invert" />
+            <Image src="/partners/veliko.png" alt="Veliko" width={150} height={80} className="dark:filter dark:brightness-0 dark:invert" />
           </div>
         </div>
       </div>
 
-      {/* Footer */}
-      <footer className="bg-gray-800 dark:bg-gray-900">
-        <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-              <h3 className="text-white text-lg font-bold">La Clinique de l'Entreprise</h3>
-              <p className="mt-2 text-gray-300">
-                Votre partenaire dans la transformation digitale
-              </p>
-            </div>
-            <div>
-              <h3 className="text-white text-lg font-bold">Contact</h3>
-              <p className="mt-2 text-gray-300">
-                Email: contact@lacliniquedelentreprise.fr
-              </p>
-            </div>
-            <div>
-              <h3 className="text-white text-lg font-bold">Suivez-nous</h3>
-              <div className="mt-2 flex space-x-4">
-                <a href="#" className="text-gray-300 hover:text-white">
-                  LinkedIn
-                </a>
-                <a href="#" className="text-gray-300 hover:text-white">
-                  Twitter
-                </a>
-              </div>
-            </div>
+      {/* About Us Section */}
+      <div className="bg-gray-50 dark:bg-gray-900 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white text-center mb-12">
+            QUI SOMMES NOUS
+          </h2>
+          <div className="prose prose-lg max-w-4xl mx-auto dark:prose-invert">
+            <p className="text-gray-600 dark:text-gray-300 mb-6">
+              Expert de la médecine préventive et de la santé en entreprise, La Clinique de l'Entreprise agit comme un véritable médecin généraliste qui accompagne les dirigeants de PME dans leur quête de performance.
+            </p>
+            <p className="text-gray-600 dark:text-gray-300 mb-6">
+              La mission de La Clinique de l'Entreprise est d'améliorer la santé et les performances des entreprises. Pour cela, nous avons développé une approche unique qui accompagne les dirigeants de PME dans leur quête de performance.
+            </p>
+            <h3 className="text-xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
+              Une approche collective au service de votre réussite
+            </h3>
+            <ul className="list-disc pl-6 text-gray-600 dark:text-gray-300 space-y-2">
+              <li>Une équipe pluridisciplinaire d'experts</li>
+              <li>Une approche globale et systémique</li>
+              <li>Un accompagnement sur-mesure</li>
+            </ul>
           </div>
         </div>
-      </footer>
+      </div>
+
+      {/* Services Preview */}
+      <div className="bg-white dark:bg-gray-800 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">
+            NOS SERVICES
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="text-center">
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Axe Santé</h3>
+              <ul className="text-gray-600 dark:text-gray-300 space-y-2">
+                <li>Diagnostic stratégique</li>
+                <li>Bilan de santé</li>
+                <li>Plan d'action</li>
+              </ul>
+            </div>
+            <div className="text-center">
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Axe Performance</h3>
+              <ul className="text-gray-600 dark:text-gray-300 space-y-2">
+                <li>Optimisation des processus</li>
+                <li>Gestion du changement</li>
+                <li>Indicateurs de performance</li>
+              </ul>
+            </div>
+            <div className="text-center">
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Axe Spécialités</h3>
+              <ul className="text-gray-600 dark:text-gray-300 space-y-2">
+                <li>Expertise sectorielle</li>
+                <li>Solutions sur mesure</li>
+                <li>Innovation</li>
+              </ul>
+            </div>
+            <div className="text-center">
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Axe Prévention</h3>
+              <ul className="text-gray-600 dark:text-gray-300 space-y-2">
+                <li>Gestion des risques</li>
+                <li>Formation</li>
+                <li>Suivi préventif</li>
+              </ul>
+            </div>
+          </div>
+          <div className="text-center mt-12">
+            <Link
+              href="/services"
+              className="inline-block px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600"
+            >
+              En savoir plus sur nos services
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      <Footer />
     </div>
   )
 } 
