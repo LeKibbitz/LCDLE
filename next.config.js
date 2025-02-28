@@ -2,10 +2,17 @@
 const nextConfig = {
   output: 'export',  // Enable static HTML export
   images: {
-    domains: ['lacliniquedelentreprise.fr'],
-    unoptimized: true, // Required for static export
+    unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'lacliniquedelentreprise.fr',
+      },
+    ],
   },
   basePath: '/LCDLE', // Required for GitHub Pages
+  assetPrefix: '/LCDLE/',
+  trailingSlash: true,
   async redirects() {
     return [];
   },
